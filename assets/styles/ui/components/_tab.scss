@@ -1,0 +1,27 @@
+.ui-tab {
+    .nav-tabs {
+        margin-bottom: 15px;
+        &.nav-justified {
+            > li {
+                &.active {
+                    > a {
+                        border-bottom-color: transparent;
+                    }
+                }
+            }
+        }
+
+        > li {
+            &.active {
+                > a {
+                    background-color: $reverse;
+                }
+            }
+        }
+        a {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
