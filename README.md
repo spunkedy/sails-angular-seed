@@ -1,5 +1,16 @@
 # Sails and Angular seed app
 
+
+You must have:
+
+* npm
+* bower
+* ruby ( for sass/compass styling )
+* sails
+
+To install sass/compass:
+* gem install sass
+* gem install compass
 To install:
 
 * git clone
