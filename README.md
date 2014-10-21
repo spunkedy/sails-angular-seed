@@ -11,6 +11,7 @@ You must have:
 To install sass/compass:
 * gem install sass
 * gem install compass
+
 To install:
 
 * git clone
