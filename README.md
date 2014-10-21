@@ -8,7 +8,8 @@ You must have:
 * ruby ( for sass/compass styling )
 * sails
 
-"thanks to @robksawyer for "
+"thanks to @robksawyer sass/compass "
+
 To install sass/compass:
 * gem install sass
 * gem install compass
