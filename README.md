@@ -21,3 +21,11 @@ To install:
 * bower install
 * npm install
 * sails lift
+
+
+
+iFlat responsive admin web skin used with permission from the author.
+
+https://wrapbootstrap.com/theme/iflat-responsive-admin-web-app-WB00K98C5
+
+@gudh
