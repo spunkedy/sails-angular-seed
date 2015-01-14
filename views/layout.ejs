@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Sails App</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <!--STYLES END-->
+  </head>
+
+    <body data-ng-app="app" id="app" data-custom-background data-off-canvas-nav>
+    <%- body %>
+
+
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+      
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+          
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/underscore/underscore-min.js"></script>
+    <script src="/bower_components/underscore.string/dist/underscore.string.min.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/bower_components/angular-sails-bind/dist/angular-sails-bind.min.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/bower_components/jquery-spinner/dist/jquery.spinner.min.js"></script>
+    <script src="/bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script src="/bower_components/jquery.steps/build/jquery.steps.min.js"></script>
+    <script src="/bower_components/toastr/toastr.min.js"></script>
+    <script src="/bower_components/bootstrap-file-input/bootstrap.file-input.js"></script>
+    <script src="/bower_components/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="/bower_components/holderjs/holder.js"></script>
+    <script src="/bower_components/raphael/raphael-min.js"></script>
+    <script src="/bower_components/morris.js/morris.js"></script>
+    <script src="/js/dependencies/jquery.sparkline.min.js"></script>
+    <script src="/js/dependencies/responsive-tables.js"></script>
+    <script src="/bower_components/flot/jquery.flot.js"></script>
+    <script src="/bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="/bower_components/flot/jquery.flot.pie.js"></script>
+    <script src="/bower_components/flot/jquery.flot.stack.js"></script>
+    <script src="/bower_components/flot/jquery.flot.time.js"></script>
+    <script src="/bower_components/gauge.js/dist/gauge.min.js"></script>
+    <script src="/bower_components/jquery.easy-pie-chart/dist/angular.easypiechart.min.js"></script>
+    <script src="/bower_components/angular-wizard/dist/angular-wizard.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/shared/directives.js"></script>
+    <script src="/js/shared/localize.js"></script>
+    <script src="/js/shared/main.js"></script>
+    <script src="/js/shared/tasks.js"></script>
+    <script src="/js/UI/UICtrl.js"></script>
+    <script src="/js/UI/UIService.js"></script>
+    <script src="/js/UI/admin.js"></script>
+    <script src="/js/Form/FormDirective.js"></script>
+    <script src="/js/Form/FormValidation.js"></script>
+    <script src="/js/vendors/jquery.sparkline.min.js"></script>
+    <script src="/js/vendors/responsive-tables.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>

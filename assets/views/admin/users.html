@@ -1,0 +1,98 @@
+
+<div class="page page-table" data-ng-controller="adminUsersCtrl">
+
+    <section class="panel panel-default table-dynamic">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Users </strong></div>
+
+        <div class="table-filters">
+            <div class="row">
+                <div class="col-sm-4 col-xs-6">
+                    <form>
+                        <input type="text"
+                               placeholder="search"
+                               class="form-control"
+                               data-ng-model="searchKeywords"
+                               data-ng-keyup="search()">
+                    </form>
+                </div>
+                <div class="col-sm-3 col-xs-6 filter-result-info">
+                    <span>
+                        Showing {{filteredUsers.length}}/{{users.length}} entries
+                    </span>              
+                </div>
+                <div class="col-sm-3 col-xs-6 filter-result-info">
+                    <span>
+                        Showing {{tasks.length}} tasks
+                    </span>              
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-bordered table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th><div class="th">
+                        User Name
+                        <span class="glyphicon glyphicon-chevron-up"
+                              data-ng-click=" order('username') "
+                              data-ng-class="{active: row == 'username'}"></span>
+                        <span class="glyphicon glyphicon-chevron-down"
+                              data-ng-click=" order('-username') "
+                              data-ng-class="{active: row == '-username'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Email 
+                        <span class="glyphicon glyphicon-chevron-up"
+                              data-ng-click=" order('email') "
+                              data-ng-class="{active: row == 'email'}"></span>
+                        <span class="glyphicon glyphicon-chevron-down"
+                              data-ng-click=" order('-email') "
+                              data-ng-class="{active: row == '-email'}"></span>
+                    </div></th>
+                    <th><div class="th">
+                        Created
+                        <span class="glyphicon glyphicon-chevron-up"
+                              data-ng-click=" order('createdAt') "
+                              data-ng-class="{active: row == 'createdAt'}"></span>
+                        <span class="glyphicon glyphicon-chevron-down"
+                              data-ng-click=" order('-createdAt') "
+                              data-ng-class="{active: row == '-createdAt'}"></span>
+                    </div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="user in users track by user.id">
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.createdAt | date:"MM/dd/yyyy 'at' h:mma" }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer class="table-footer">
+            <div class="row">
+                <div class="col-md-6 page-num-info">
+                    <span>
+                        Show 
+                        <select data-ng-model="numPerPage"
+                                data-ng-options="num for num in numPerPageOpt"
+                                data-ng-change="onNumPerPageChange()">
+                        </select> 
+                        entries per page
+                    </span>
+                </div>
+                <div class="col-md-6 text-right pagination-container">
+                    <pagination class="pagination-sm"
+                                page="currentPage"
+                                total-items="filteredUsers.length"
+                                max-size="4"
+                                on-select-page="select(page)"
+                                items-per-page="numPerPage"
+                                rotate="false"
+                                boundary-links="true"></pagination>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+</div>

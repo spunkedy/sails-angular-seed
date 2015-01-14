@@ -1,0 +1,144 @@
+$nav_bg:                #34323A;
+$sub_nav_bg:            darken($nav_bg, 5%);
+$link_color:            #AEB2B7;
+$link_active_bg:        $sub_nav_bg;
+
+.on-canvas #nav-container {
+    left: 0;
+}
+
+#nav-container {
+    z-index: 11; // should be highter than top header
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    left: -220px;
+    width: 220px;
+    padding: 0;
+    background-color: $nav_bg;
+    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: -blackberry-touch;
+    // @include transition(left .3s ease-in-out);
+    @media (min-width:$screen-sm) {
+        left: 0;
+    }
+
+    ul {
+        padding-left: 0;
+        list-style: none;
+    }
+}
+
+#nav {
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: -blackberry-touch;
+
+    >li>a>i,
+    >li>a>.nav-icon {
+        display: inline;
+        margin-right: 6px;
+        font-size: 15px;
+        line-height: 1;
+    }
+
+    a {
+        font-size: 12px;
+        color: $link_color;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    >li {
+        position: relative;
+        margin: 0;
+        text-align: left;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        // &.open {
+        //     ul {
+        //         display: block;
+        //         opacity: 1;
+        //     }
+        // }
+        &.open,
+        &:hover {
+            > a {
+                background-color: $link_active_bg;
+                color: $reverse;
+                font-weight: bold;
+            }
+        }
+        &:first-child > a {
+            border-top: 0;
+        }
+        >a {
+            position: relative;
+            display: block;
+            padding: 18px 0 18px 25px;
+            @include transition( all .15s ease-in-out);
+
+            > .badge {
+                position: absolute;
+                top: 16px;
+                right: 5px;
+            }
+        }
+        &.active {
+            >a {
+                background-color: $link_active_bg;
+                color: $reverse;
+                font-weight: bold;
+            }
+        }
+
+        > .icon-has-ul {
+            position: absolute;
+            top: 20px;
+            right: 15px;
+        }
+    }
+
+    // sub menu
+    ul {
+        background-color: $sub_nav_bg;
+        display: none;
+
+        li {
+            position: relative;
+            padding: 0;
+            &:hover,
+            &.active {
+                a {
+                    color: $reverse;
+                    background-color: darken($sub_nav_bg, 5%);
+                }
+            }
+            &:last-child > a {
+                border-bottom: 0;
+            }
+
+            > a {
+                position: relative;
+                display: block;
+                padding: 13px 0 13px 25px;
+                @include transition( all .15s ease-in-out);
+                &:first-child {
+                    border-top: none;
+                }
+
+                i.fa-caret-right {
+                    margin-right: 15px;
+                }
+
+                > .badge {
+                    position: absolute;
+                    right: 5px;
+                    top: 12px;
+                }
+            }
+        }
+
+
+    }
+}

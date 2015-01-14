@@ -1,0 +1,13 @@
+<ul id="nav"
+    data-ng-controller="NavCtrl"
+    data-collapse-nav
+    data-slim-scroll
+    data-highlight-active
+    >
+    <li><a href="#/dashboard"> <i class="fa fa-dashboard"></i><span data-i18n="Dashboard"></span> </a></li>
+    <li data-ng-if="hasRole('admin')"><a href="#/admin/users"> <i class="fa fa-user"></i><span data-i18n="Users"></span> </a></li>
+    <li ><a href="#/tasks"> <i class="fa fa-tasks"></i><span data-i18n="Tasks"></span> </a></li>
+    
+    
+   
+</ul>

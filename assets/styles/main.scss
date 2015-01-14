@@ -1,0 +1,34 @@
+
+// Bootstrap, Note: the only files that has CONTENT changed is "_variables.scss"
+// -------------------------
+@import "global/var";
+@import "bootstrap/bootstrap";
+
+@import "compass/css3";
+@import
+// UI, uses Bootstrap's variables
+    "ui/ui"
+
+// Plugins, overrides plugins' style
+,   "plugins/bootstrap-slider"
+,   "plugins/responsive-tables"
+,   "plugins/easypiecharts"
+,   "plugins/toastr"
+,   "plugins/sparkline"
+,   "plugins/jquery-steps"
+
+// Pages 
+,   "pages/dashboard"
+,   "pages/pages"
+,   "pages/err"
+,   "pages/signin_signup"
+,   "pages/profile"
+,   "pages/ui"
+,   "pages/tasks"
+
+// sections
+,   "sections/nav"
+,   "sections/header"
+,   "sections/content"
+,   "sections/form"
+;

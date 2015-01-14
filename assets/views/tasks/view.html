@@ -1,0 +1,60 @@
+<div class="page page-tasks">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="task-container" data-ng-controller="pageTaskCtrl">
+
+                <form data-ng-submit="add()" class="add-task">
+                    <input type="text"
+                           placeholder="What needs to be done?"
+                           class="form-control"
+                           data-ng-model="newTask"
+                           autofocus>
+                    <a type="submit" class="submit-button" data-ng-click="add()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </form>
+                <hr>
+                <section  data-ng-cloak>
+                    <ul class="task-list list-unstyled">
+                        <li data-ng-repeat="task in tasks track by task.id" 
+                            data-ng-class="{editing: task == editedTask}">
+                            <span class="view">
+                                <label data-ng-dblclick="edit(task)">{{task.main}}</label>
+                                <span class="glyphicon glyphicon-pencil"
+                                      data-ng-click="edit(task)"></span>
+                                <span class="glyphicon glyphicon-remove"
+                                      data-ng-click="remove(task, $index)"
+                                      ></span>
+                            </span>
+                            <form data-ng-submit="doneEditing(task, $index)">
+                                <input type="text"
+                                       class="edit form-control"
+                                       data-ng-trim="false"
+                                       data-ng-model="task.main"
+                                       data-ng-blur="doneEditing(task, $index)"
+                                       data-task-focus="task == editedTask">
+                            </form>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+                <footer class="task-footer">
+                    <ul class="list-inline clearfix">
+                        <li class="text-left">
+                            <span>
+                                <strong>{{tasks.length}}</strong>
+                                <span class="text-muted"
+                                      data-ng-pluralize count="tasks.length"
+                                      when="{one: 'item left', other: 'items left'}"></span>
+                            </span>                            
+                        </li>
+                    </ul>
+                </footer>
+                
+            </section>
+        </div>
+    </div>
+
+    
+</div>
