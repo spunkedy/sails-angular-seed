@@ -25,9 +25,10 @@ var cssFilesToInject = [
 var jsFilesToInject = [
   
   // Load sails.io before everything else
-  'js/dependencies/sails.io.js',
+  'bower_components/sails.io.js/dist/sails.io.js',
 
   'bower_components/jquery/dist/jquery.min.js',  
+  'bower_components/jquery/jquery.min.js',  
   'bower_components/underscore/underscore-min.js',
   'bower_components/underscore.string/dist/underscore.string.min.js',
   'bower_components/angular/angular.js',

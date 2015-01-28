@@ -28,7 +28,8 @@ angular.module('app.controllers', ['ngSailsBind'])
         $rootScope.isLoggedIn = ->
             io.socket.get "/user/isLoggedIn", (data, jwres) ->
                 $log.log "returning from isLoggedIn"
-                if data.statusCode && data.statusCode = 401                
+                $log.log data
+                if !data   || (data.statusCode && data.statusCode = 401 )             
                     $log.log "Not authorized yet"
                 else 
                     $log.log "Authorized from check"

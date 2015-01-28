@@ -26,12 +26,7 @@ module.exports = function (req, res, next) {
     
 	if(req.isSocket) {
         //Associate the session ID to the socket session for session specific messages ( login / logout )
-        if(req.session){
-            var handshake = req.socket.manager.handshaken[req.socket.id];
-            if (handshake) {
-                req.session.sessionID = handshake.sessionID;
-            }
-        }
+
         if(req.session &&
             req.session.passport &&
             req.session.passport.user) {

@@ -23,7 +23,7 @@ angular.module('app.ui.services', [])
     Session.destroy()
     $log.log Session
   authService.processUser = (user,roles) ->
-
+    $log.log user
     Session.create user.id, user.username, roles
     #$log.log "processed user"
     #$log.log user

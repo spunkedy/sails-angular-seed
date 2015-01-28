@@ -16,7 +16,7 @@
                 <hr>
                 <section  data-ng-cloak>
                     <ul class="task-list list-unstyled">
-                        <li data-ng-repeat="task in tasks track by task.id" 
+                        <li data-ng-repeat="task in tasks track by task.id " 
                             data-ng-class="{editing: task == editedTask}">
                             <span class="view">
                                 <label data-ng-dblclick="edit(task)">{{task.main}}</label>
