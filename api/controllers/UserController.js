@@ -85,6 +85,7 @@ module.exports = {
                 res.json({err:err});
                 console.log(err);              
               } else {
+                User.publishCreate(user);
                 res.json({success: true});
               }
             });

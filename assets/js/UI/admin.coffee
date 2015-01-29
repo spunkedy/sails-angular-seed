@@ -56,17 +56,15 @@ angular.module('app.adminUsers', ['ngSailsBind'])
         $sailsBind.bind("user", $scope)
         $sailsBind.bind("task", $scope)
         # init
-        #init = ->
-            
-        #    userWatch = $scope.$watch "users.length", (newValue, oldValue) ->
-        #        $log.log "users loaded by length"
-                #$scope.search()
-                #$scope.select $scope.currentPage
-            
-                
-        #        return
+        init = ->
+            userWatch = $scope.$watch "users.length", (newValue, oldValue) ->
+                $log.log "users loaded by length"
+                $scope.search()
+                $scope.select $scope.currentPage
+                            
+                return
 
-        #init()
+        init()
 
 
 

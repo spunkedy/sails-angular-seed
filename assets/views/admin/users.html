@@ -20,11 +20,6 @@
                         Showing {{filteredUsers.length}}/{{users.length}} entries
                     </span>              
                 </div>
-                <div class="col-sm-3 col-xs-6 filter-result-info">
-                    <span>
-                        Showing {{tasks.length}} tasks
-                    </span>              
-                </div>
             </div>
         </div>
 
@@ -61,7 +56,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-ng-repeat="user in users track by user.id">
+                <tr data-ng-repeat="user in currentPageUsers track by user.id">
                     <td>{{user.username}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.createdAt | date:"MM/dd/yyyy 'at' h:mma" }}</td>
