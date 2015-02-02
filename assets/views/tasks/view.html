@@ -15,8 +15,12 @@
                 </form>
                 <hr>
                 <section  data-ng-cloak>
-                    <ul class="task-list list-unstyled">
-                        <li data-ng-repeat="task in tasks track by task.id " 
+                    <div class="task-list list-unstyled" ng-repeat="(key, value) in tasks | groupBy: 'alt'">
+                        <h2>
+                            {{ key }} tasks
+                        </h2>
+                      <ul class="task-list list-unstyled">
+                        <li data-ng-repeat="task in value" 
                             data-ng-class="{editing: task == editedTask}">
                             <span class="view">
                                 <label data-ng-dblclick="edit(task)">{{task.main}}</label>
@@ -35,7 +39,8 @@
                                        data-task-focus="task == editedTask">
                             </form>
                         </li>
-                    </ul>
+                      </ul>
+                    </div>
                 </section>
 
                 <hr>

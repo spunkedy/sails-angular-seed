@@ -46,7 +46,7 @@ angular.module('app.tasks', [])
 
             $rootScope.tasks.push(
                 main: newTask
-                alt: "temp description"
+                alt: $scope.currentUser.username
             )
             logger.logSuccess('New task: "' + newTask + '" added')
 

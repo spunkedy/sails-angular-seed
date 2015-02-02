@@ -33,7 +33,8 @@ angular.module('app.controllers', ['ngSailsBind'])
                     $log.log "Not authorized yet"
                 else 
                     $log.log "Authorized from check"
-                    $sailsBind.bind("task", $rootScope)
+                    if !$rootScope.tasks 
+                        $sailsBind.bind("task", $rootScope)
                     $rootScope.setCurrentUser(data)
                     $rootScope.$broadcast AUTH_EVENTS.loginSuccess                
         $rootScope.isLoggedIn()

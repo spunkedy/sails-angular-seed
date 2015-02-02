@@ -6,6 +6,7 @@ angular.module('app', [
     'ngRoute'
     'ngAnimate'
     'ngSailsBind'
+    'angular.filter'
 
     # 3rd Party Modules
     'ui.bootstrap'

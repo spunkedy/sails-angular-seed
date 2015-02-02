@@ -34,7 +34,8 @@ var jsFilesToInject = [
   'bower_components/angular/angular.js',
   'bower_components/angular-route/angular-route.min.js',
   'bower_components/angular-animate/angular-animate.min.js',
-  "bower_components/angular-sails-bind/dist/angular-sails-bind.min.js",
+  "bower_components/angular-sails-bind/dist/angular-sails-bind.js",
+  "bower_components/angular-filter/dist/angular-filter.min.js",
 
 
   "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
