@@ -136,7 +136,7 @@ angular.module('app', [
     # check if current location matches route  
     routeClean = (route) ->
         _.find routesThatDontRequireAuth, (noAuthRoute) ->
-          _.str.startsWith route, noAuthRoute
+          s.startsWith route, noAuthRoute
 
 
     $rootScope.$on "$routeChangeStart", (event, next, current) ->
