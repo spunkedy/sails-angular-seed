@@ -73,10 +73,10 @@ var AuthController = {
     
     req.logout();
     res.redirect('/');
-    sails.sockets.broadcast("authNotification" + req.session.sessionID , "message", {message: "onLogout"} ); 
+    sails.sockets.broadcast("authNotification" + req.sessionID , "message", {message: "onLogout"} ); 
   },
   listen: function(req,res){
-    sails.sockets.join(req.socket, "authNotification"+req.session.sessionID );
+    sails.sockets.join(req.socket, "authNotification"+req.sessionID );
   },
   /**
    * Render the registration page
