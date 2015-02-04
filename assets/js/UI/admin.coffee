@@ -13,10 +13,11 @@ angular.module('app.adminUsers', ['ngSailsBind'])
         $scope.select = (page) ->
             start = (page - 1) * $scope.numPerPage
             end = start + $scope.numPerPage
-            $scope.currentPageUsers = $scope.filteredUsers.slice(start, end)
-            # console.log start
-            # console.log end
-            # console.log $scope.currentPageUsers
+            if $scope.filteredUsers && $scope.filteredUsers.length > 0
+                $scope.currentPageUsers = $scope.filteredUsers.slice(start, end)
+            console.log start
+            console.log end
+            console.log $scope.currentPageUsers
 
         # on page change: change numPerPage, filtering string
         $scope.onFilterChange = ->
@@ -54,13 +55,11 @@ angular.module('app.adminUsers', ['ngSailsBind'])
         $scope.currentPageUsers = []
 
         $sailsBind.bind("user", $scope)
-        $sailsBind.bind("task", $scope)
         # init
         init = ->
             userWatch = $scope.$watch "users.length", (newValue, oldValue) ->
                 $log.log "users loaded by length"
                 $scope.search()
-                $scope.select $scope.currentPage
                             
                 return
 
