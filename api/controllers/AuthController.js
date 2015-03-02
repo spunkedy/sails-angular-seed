@@ -145,9 +145,7 @@ var AuthController = {
       // These views should take care of rendering the error messages.
       var action = req.param('action');
 
-      res.json({
-        errors    : req.flash('error')
-      });
+      res.redirect('/');
     }
 
     passport.callback(req, res, function (err, user) {
