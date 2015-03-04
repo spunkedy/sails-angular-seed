@@ -99,43 +99,57 @@ console.log('passport.connect service');
       // Scenario: A new user is attempting to sign up using a third-party
       //           authentication provider.
       // Action:   Create a new user and assign them a passport.
-      if (!passport) {
-        User.create(user, function (err, user) {
-          if (err) {
-            if(err.code === "E_VALIDATION"){
-              req.flash('error', err.invalidAttributes.email ? 
-                'Error.Passport.Email.Exists' : 'Error.Passport.User.Exists');
-            }
-            return next(err);
-          }
-          
-          query.user = user.id;
 
-          Passport.create(query, function (err, passport) {
-            // If a passport wasn't created, bail out
+      //associate group
+      Groups.findOrCreate({
+        groupName: 'user'
+      }, {
+        groupName: 'user',
+        description: 'Generic user'
+      }).exec(function createFindCB(err, userGroup) {
+        //Check password for equality
+        user.groups = [userGroup.id]
+        if(!user.username){
+          user.username = user.email;
+        }
+        if (!passport) {
+          User.create(user, function (err, user) {
+            if (err) {
+              if(err.code === "E_VALIDATION"){
+                req.flash('error', err.invalidAttributes.email ? 
+                  'Error.Passport.Email.Exists' : 'Error.Passport.User.Exists');
+              }
+              return next(err);
+            }
+            
+            query.user = user.id;
+
+            Passport.create(query, function (err, passport) {
+              // If a passport wasn't created, bail out
+              if (err) return next(err);
+
+              next(err, user);
+            });
+          });
+        }
+        // Scenario: An existing user is trying to log in using an already
+        //           connected passport.
+        // Action:   Get the user associated with the passport.
+        else {
+          // If the tokens have changed since the last session, update them
+          if (query.hasOwnProperty('tokens') && query.tokens !== passport.tokens) {
+            passport.tokens = query.tokens;
+          }
+
+          // Save any updates to the Passport before moving on
+          passport.save(function (err, passport) {
             if (err) return next(err);
 
-            next(err, user);
+            // Fetch the user associated with the Passport
+            User.findOne(passport.user.id, next);
           });
-        });
-      }
-      // Scenario: An existing user is trying to log in using an already
-      //           connected passport.
-      // Action:   Get the user associated with the passport.
-      else {
-        // If the tokens have changed since the last session, update them
-        if (query.hasOwnProperty('tokens') && query.tokens !== passport.tokens) {
-          passport.tokens = query.tokens;
         }
-
-        // Save any updates to the Passport before moving on
-        passport.save(function (err, passport) {
-          if (err) return next(err);
-
-          // Fetch the user associated with the Passport
-          User.findOne(passport.user.id, next);
-        });
-      }
+      });
     } else {
       // Scenario: A user is currently logged in and trying to connect a new
       //           passport.

@@ -161,7 +161,7 @@ var AuthController = {
         // Upon successful login, send the user to the homepage were req.user
         // will available.
         sails.sockets.broadcast("authNotification" + req.session.sessionID  , "message", {message: "onLogin"}); 
-        res.json({sessionID: req.sessionID, user: req.user});
+        res.redirect('/');
       });
     });
   },
