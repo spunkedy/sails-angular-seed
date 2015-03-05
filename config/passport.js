@@ -48,6 +48,7 @@ module.exports.passport = {
     options: {
       clientID: '729315653856716',
       clientSecret: '0ef73d5ea3e76dc95364b6a9d0319cb2',
+      callbackURL: 'http://localhost:1337/auth/facebook/callback',
       profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'gender']
 
     }
